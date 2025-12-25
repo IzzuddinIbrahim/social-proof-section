@@ -1,0 +1,221 @@
+:root {
+    /*Colors*/
+
+    /*Primary*/
+
+    --Very-Dark-Magenta: hsl(300, 43%, 22%);
+    --Soft-Pink: hsl(333, 80%, 67%);
+
+    /*Neutral*/
+
+    --Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+    --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+    --White: hsl(0, 0%, 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'League Spartan', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    min-height: 100dvh;
+    background-image: url(images/bg-pattern-top-desktop.svg), url(images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "box-1 box-2"
+        "box-3 box-3";
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    padding: 5px;
+
+    /*width*/
+    width: 100%;
+    max-width: 1100px;
+}
+
+
+/* main-title */
+
+.main-title {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 750;
+    color: var(--Very-Dark-Magenta);
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.main-title>p {
+    font-size: 1.25rem;
+    width: 500px;
+    color: var(--Dark-Grayish-Magenta);
+}
+
+
+/*rated*/
+
+.rating {
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-box {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--Light-Grayish-Magenta);
+    padding: 10px 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--Very-Dark-Magenta);
+}
+
+.rating-box::before {
+    content: "⭐⭐⭐⭐⭐";
+    margin-right: 10px;
+}
+
+.rating-box:nth-child(1) {
+    transform: translateX(-50px);
+}
+
+.rating-box:nth-child(3) {
+    transform: translateX(50px);  
+}
+
+/*testimonials*/
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    color: var(--White);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 280px;
+    max-width: 400px;
+    align-items: left;
+    justify-content: center;
+    width: 350px;
+    margin: 10px;
+    background-color: var(--Very-Dark-Magenta);
+    border-radius: 1rem;
+    overflow: hidden;
+    color: var(--Light-Grayish-Magenta);
+    padding: 25px;
+}
+
+.card:nth-child(2) {
+    transform: translateY(18px);
+}
+
+.card:nth-child(3) {
+    transform: translateY(36px);
+}
+
+.card img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.card h4 {
+    color: var(--Soft-Pink);
+}
+
+.review-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.review-head :where(h3, h4) {
+    width: 220px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* responsive design */
+
+@media (max-width: 768px) {
+
+    body {
+        background-image: url(images/bg-pattern-top-mobile.svg), url(images/bg-pattern-bottom-mobile.svg);
+        background-repeat: no-repeat, no-repeat;
+        background-position: top left, bottom right;
+    }
+
+    .container {
+        grid-template-areas:
+            "box-1"
+            "box-2"
+            "box-3";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+
+        text-align: center;
+    }
+
+    .main-title {
+        padding-left: 0;
+        align-items: center;
+    }
+
+    h1, .main-title>p {
+        width: 100%;
+    }
+
+    .rating {
+        align-items: center;
+    }
+
+    .rating-box {
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .rating-box:nth-child(1),
+    .rating-box:nth-child(3),
+    .card:nth-child(2),
+    .card:nth-child(3) {
+        transform: none;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
